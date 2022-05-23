@@ -7,6 +7,11 @@ const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
 require('dotenv/config')
+const app = express();
+
+
+// IMPORT ALL ROUTES
+const { users, admin } = require('./routes/index');
 
 // IMPORT UTILITIES
 const dbConnection = require('./configuration/dbConnection');
@@ -55,13 +60,15 @@ app.use(morgan('tiny'))
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
-const app = express();
 
 // START DB CONNECTION
-dbConnection(process.env.DB_CONNECTION_URI);
+//dbConnection(process.env.DB_CONNECTION_URI);
 
 // ROUTES
-app.use('/', indexRouter);
+/*app.use('/', indexRouter);
 app.use('/users', usersRouter);
+*/
+app.use('/api/v1', users);
+app.use('/api/v2', admin);
 
 module.exports = app;

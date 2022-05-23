@@ -1,9 +1,6 @@
-var express = require('express');
-var router = express.Router();
+// ALL ROUTES (PUBLIC)
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+module.exports = {
+  users: require('./users'),
+  admin: require('./admin')
+}

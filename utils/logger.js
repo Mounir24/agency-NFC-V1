@@ -28,7 +28,7 @@ const HTTP_LOGGER = morgan(FORMAT, {
             // START UPDATING HTTP LOGGER FILE LOG 
             (async function () {
                 // GET REQUEST IP
-                const IP_REQUEST = await axios.get('https://api.ipify.org?format=json').
+                await axios.get('https://api.ipify.org?format=json').
                     then(data => {
                         // HTTP TRAFFIC 
                         console.log('REQUEST IP: ' + data.data.ip)

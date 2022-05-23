@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/users', function (req, res, next) {
-  res.status(200).json({ users: 'USERS routes' });
+router.get('/admin', function (req, res, next) {
+    res.status(200).json({ admin: 'ADMIN ROUTES' });
 });
 
 module.exports = router;
